@@ -1,4 +1,4 @@
-package com.example.servlet.servlets;
+package com.example.servlet.servlets.forms;
 
 import java.io.IOException;
 
