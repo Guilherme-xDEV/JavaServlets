@@ -12,21 +12,21 @@
 
     <c:forEach var="task" items="${tasks}">
 
-        <li>
+    <li>
 
-            ${task.title}
+        ${task.title}
 
-            <c:if test="${task.completed}">
-            </c:if>
+        <c:if test="${task.completed}">
+            completed
+        </c:if>
 
-            <c:if test="${not task.completed}">
-
-            </c:if>
-
-        </li>
+        <c:if test="${not task.completed}">
+            pending
+        </c:if>
+        
+    </li>
 
     </c:forEach>
-
 </ul>
 
 </body>

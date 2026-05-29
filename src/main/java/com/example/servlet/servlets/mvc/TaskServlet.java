@@ -11,27 +11,78 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/tasks")
 public class TaskServlet extends HttpServlet {
     
-    @Override protected void doPost(
+    @Override protected void doGet(
         HttpServletRequest request,
         HttpServletResponse response)
         throws ServletException, IOException {
 
-        String title = request.getParameter("title");
-        List<Task> tasks = new ArrayList<>();
+        HttpSession session = request.getSession();
 
-        tasks.add(new Task(title, false));
-        tasks.add(new Task("Study Servlets", true));
-        tasks.add(new Task("Learn JSP", true));
-        tasks.add(new Task("Understand JSTL", false));
+        List<Task> tasks = (List<Task>) session.getAttribute("tasks");
+
+        if (tasks == null) {
+            tasks = new ArrayList<>();
+
+            tasks.add(new Task(1, "Study Servlets", true));
+            tasks.add(new Task(2, "Learn JSP", true));
+            tasks.add(new Task(3, "Understand JSTL", false));
+
+            session.setAttribute("tasks", tasks);
+        }
 
         request.setAttribute("tasks", tasks);
-
         request.getRequestDispatcher(
             "/examples/mvc/tasks.jsp")
             .forward(request, response);
     }
+
+    @Override
+    protected void doPost(
+        HttpServletRequest request,
+        HttpServletResponse response)
+        throws ServletException, IOException {
+
+        HttpSession session = request.getSession();
+
+        List<Task> tasks = (List<Task>) session.getAttribute("tasks");
+            
+        if (tasks == null) {
+            tasks = new ArrayList<>();
+        }
+
+        String title = request.getParameter("title");
+
+        int nextId = tasks.size() + 1;
+
+        Task task = new Task(nextId, title, false);
+
+        tasks.add(task);
+
+        session.setAttribute("tasks", tasks);
+
+        response.sendRedirect(
+            request.getContextPath() + "/tasks");
+    }
 }
+
+/*
+28/05
+
+Implemented Concepts:
+Session Scope, Request Persistency,
+POST -> for add new task / modificate state
+GET -> to list tasks
+
+Use response.sendRedirect() instead of forward()
+then it is possible: POST -> Redirect -> GET (PRG Pattern)
+
+-> it adds 'mini' persistency without database.
+
+general servlet flux:
+Post /tasks  -->  Redirect  --> Get /tasks  --> Rendering w/ JSP
+*/
