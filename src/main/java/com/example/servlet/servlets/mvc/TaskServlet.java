@@ -28,9 +28,9 @@ public class TaskServlet extends HttpServlet {
         if (tasks == null) {
             tasks = new ArrayList<>();
 
-            tasks.add(new Task(1, "Study Servlets", true));
-            tasks.add(new Task(2, "Learn JSP", true));
-            tasks.add(new Task(3, "Understand JSTL", false));
+            tasks.add(new Task(1, "Study Servlets", "test1", true));
+            tasks.add(new Task(2, "Learn JSP", "test2", true));
+            tasks.add(new Task(3, "Understand JSTL", "Behold World", false));
 
             session.setAttribute("tasks", tasks);
         }
@@ -57,9 +57,11 @@ public class TaskServlet extends HttpServlet {
 
         String title = request.getParameter("title");
 
+        String description = request.getParameter("description");
+
         int nextId = tasks.size() + 1;
 
-        Task task = new Task(nextId, title, false);
+        Task task = new Task(nextId, title, description, false);
 
         tasks.add(task);
 

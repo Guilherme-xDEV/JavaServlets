@@ -4,11 +4,13 @@ public class Task {
     
     private int id;
     private String title;
+    private String description;
     private boolean completed;
 
-    public Task(int id, String title, boolean completed) {
+    public Task(int id, String title, String description, boolean completed) {
         this.title = title;
         this.completed = completed;
+        this.description = description;
         this.id = id;
     }
 
@@ -29,5 +31,13 @@ public class Task {
 
     public int getId() {
         return id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

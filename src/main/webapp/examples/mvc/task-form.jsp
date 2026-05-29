@@ -1,29 +1,45 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="../../css/project-general-style.css">
-    <title>Task Form</title>
+
+    <title>Create Task</title>
+
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/css/project-general-style.css">
+
 </head>
 <body>
 
-<h1>Tasks List</h1>
+<div class="intro-container">
 
-<form action="${pageContext.request.contextPath}/tasks" method="POST">
+    <h1>Create Task</h1>
 
-    <label>Task title:</label>
+    <form action="${pageContext.request.contextPath}/tasks"
+          method="POST"
+          class="task-form">
 
-    <input type="text" name="title">
+        <label>Task title</label>
 
-    <br><br>
+        <input
+            type="text"
+            name="title"
+            required>
 
-    <button type="submit">
-        Send
-    </button>
+        <label>Description</label>
 
-</form>
+        <textarea
+            name="description"
+            rows="5"
+            placeholder="Describe the task..."></textarea>
 
+        <button type="submit">
+            Create Task
+        </button>
+
+    </form>
+
+</div>
 </body>
 </html>
