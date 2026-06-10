@@ -8,9 +8,11 @@
 </head>
 <body>
 
-    <div class="intro-container">
-
+    <div class="title">
         <h1>User Registered!</h1>
+    </div>
+
+    <div class="examples-list">
 
         <p>Name: ${user.name}</p>
 

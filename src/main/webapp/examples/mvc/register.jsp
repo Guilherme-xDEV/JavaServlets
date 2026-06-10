@@ -8,7 +8,10 @@
 </head>
 <body>
 
-    <h1>Register User</h1>
+    <div class="title">
+        <h1>Register User</h1>
+    </div>
+
 
     <form action="/servlet/register" method="POST">
         

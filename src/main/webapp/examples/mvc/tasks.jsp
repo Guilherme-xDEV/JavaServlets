@@ -9,7 +9,10 @@
 <body>
 <div class="intro-container">
 
-    <h1>Task List</h1>
+    <div class="title">
+        <h1>Task List</h1>
+    </div>
+
 
     <c:if test="${empty tasks}">
 

@@ -7,25 +7,32 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: aliceblue;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
 }
 
 
 .title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    color: #1f4e79;
+    margin-bottom: 10px;
 }
 
 .explain {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 90%;
-    padding: 10px;
-    gap: 10px;
-    border-left: 5px solid green;
-    border-radius: 10px;
+    width: min(900px, 90%);
+    background: white;
+    padding: 20px;
+    border-left: 5px solid #2e8b57;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.exaplin p {
+    line-height: 1.6;
+    color: #555
 }
 
 /*.intro-container {
@@ -39,65 +46,86 @@ body {
 }*/
 
 .examples-list {
+    width: min(900px, 100%);
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-    width: 80%;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .examples-list a {
+    background: white;
     text-decoration: none;
-    color: black;
-    font-size: 1.2em;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    color: #333;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.25s ease;
+}
+
+.examples-list a:hover {
+    transform: translateY(-4px);
+    background: #1f4e79;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 30%;
+    gap: 12px;
+    width: min(450px, 90%);
     background-color: white;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 16px;
     margin: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-form input:focus {
-    outline: none;
+form input {
+    width: max(100px, 70%);
 }
 
+form input:focus {
+    outline: none;
+    border-color: #1f4e79;
+}
+
+
+/*
 form input {
     padding: 5px;
 }
 
 form label {
     font-size: small;
-}
+} */
 
 form button {
+    width: 70%;
     border: none;
-    padding: 5px;
-    border-radius: 10px;
-    width: 40%;
+    background: #1f4e79;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
     align-self: center;
 }
 
-/* New Aditions For Task Form*/
+form button:hover {
+    background: #163a5a;
+}
+
+/* Task Form*/
 .task-form,
 .task-card {
-
+    width: min(700px, 95%);
     background: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     margin-bottom: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
@@ -106,28 +134,30 @@ form button {
 .task-form textarea {
     width: 100%;
     margin-top: 8px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 6px;
+    margin-bottom: 16px;
+    padding: 12px;
     border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
 .completed {
-    color: green;
+    color: #2e8b57;
     font-weight: bold;
 }
 
 .pending {
-    color: orange;
+    color: #ff9800;
     font-weight: bold;
 }
 
 .description {
-    color: #444;
+    color: #666;
+    line-height: 1.5;
 }
 
 .subtitle {
     display: flex;
-    gap: 5px;
-    padding: 5px;
+    gap: 8px;
+    align-items: center;
+    margin-top: 10px;
 }

@@ -5,20 +5,16 @@
 <head>
 
     <title>Create Task</title>
-
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/css/project-general-style.css">
+    <link rel="stylesheet" href="../../css/project-general-style.css">
 
 </head>
 <body>
 
-<div class="intro-container">
+    <div class="title">
+        <h1>Create Task</h1>
+    </div>
 
-    <h1>Create Task</h1>
-
-    <form action="${pageContext.request.contextPath}/tasks"
-          method="POST"
-          class="task-form">
+    <form action="/servlet/tasks" method="POST" class="task-form">
 
         <label>Task title</label>
 
@@ -40,6 +36,5 @@
 
     </form>
 
-</div>
 </body>
 </html>
