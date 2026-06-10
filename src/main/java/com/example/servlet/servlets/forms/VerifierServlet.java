@@ -20,15 +20,15 @@ public class VerifierServlet extends HttpServlet {
         throws ServletException, IOException {
             
             String age = req.getParameter("age");
-            String leapYear = req.getParameter("leapYear");
+            String year = req.getParameter("year");
             String palindrome = req.getParameter("palindrome");
 
             if (age == null || age.isBlank()) {
                 age = "0";
             }
 
-            if (leapYear == null || leapYear.isBlank()) {
-                leapYear = "0";
+            if (year == null || year.isBlank()) {
+                year = "0";
             }
 
             if (palindrome == null || palindrome.isBlank()) {
@@ -41,20 +41,30 @@ public class VerifierServlet extends HttpServlet {
                     <html>
                     <head>
                         <meta charset="UTF-8">
+                        <link rel="stylesheet" href="css/project-general-style.css">
                         <title>Verificator</title>
                     </head>
                     <body>
 
-                        <h1>Validation of the Received data:</h1>
+                        <div class="title">
+                            <h2>Validation of the Received data:</h2>
+                        </div>
 
-                        <p>Is adult? %s</p>
-                        <p>Is a leap year? %s</p>
-                        <p>Is Palindrome? %s</p>
+                        <div class="subtitle">   
+                            <p>Entered Values:</p>
+                            <p>Age: %s</p>
+                            <p>Year: %s</p>
+                            <p>Word: %s</p>
+                        </div>
+
+                        <p>Are you an adult? %s</p>
+                        <p>Is this a leap year? %s</p>
+                        <p>Is it Palindrome? %s</p>
 
                     </body>
                     </html>
                         
-                    """.formatted(verifyAge(age), verifyYearLeap(leapYear), isPalindrome(palindrome));
+                    """.formatted(age, year, palindrome, verifyAge(age), verifyYearLeap(year), isPalindrome(palindrome));
 
             resp.setContentType("text/html;charset=UTF-8");
 
@@ -109,7 +119,7 @@ public class VerifierServlet extends HttpServlet {
             right--;
         }
 
-        response = "it is a palindrommeeee!";
+        response = "it is a palindrome!";
         return response;
 
     }

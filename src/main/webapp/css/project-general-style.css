@@ -10,7 +10,25 @@ body {
 }
 
 
-.intro-container {
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.explain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    padding: 10px;
+    gap: 10px;
+    border-left: 5px solid green;
+    border-radius: 10px;
+}
+
+/*.intro-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +36,7 @@ body {
     width: 90%;
     padding: 10px;
     gap: 10px;
-}
+}*/
 
 .examples-list {
     display: grid;
@@ -106,4 +124,10 @@ form button {
 
 .description {
     color: #444;
+}
+
+.subtitle {
+    display: flex;
+    gap: 5px;
+    padding: 5px;
 }
